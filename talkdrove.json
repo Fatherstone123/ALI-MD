@@ -1,13 +1,14 @@
-{
-  "name": "ALI-MD",
-  "description": "Javascript WhatsApp bot made by ali",
-  "logo": "https://files.catbox.moe/6ku0eo.jpg",
-  "keywords": ["ALI-MD"],
-  "success_url": "/",
 
-    "stack": "container",
-  "env": {
-    "SESSION_ID": {1EYTFI5A#uOzmrtHuGvMTSl34Kh4C980DWrC9AhpYqZiybG172Bg
+{
+    "bot-name": "ALI-MD",
+    "description": "Whiskey Sockets Baileys Whatsapp bot By ali",
+    "logo": "https://cdn.ironman.my.id/i/2du3i5.jpg",
+    "keywords": ["bot"],
+    "documentation-link": "https://ali-md.onrender.com/",
+    "owner-verification": "ar6167423@gmail.com",
+  
+    "env": {
+   "SESSION_ID": {
       "description": "Put the session-id here.",
       "required": true,
       "value": ""
@@ -16,7 +17,7 @@
     "STICKER_NAME": {
       "description": "type your sticker pack name.",
       "required": false,
-      "value": "𓆩ု᪳𝐀ɭīī 𝐌Ɗှ᪳𓆪"
+      "value": "𓆩ု᪳𝐀𝐋𝐈-𝐌𝐃ှ᪳𓆪"
     }, 
       
     "PREFIX": {
@@ -31,7 +32,8 @@
       "value": "public"
       
     },
-        
+    
+    
     "ALWAYS_ONLINE": {
       "description": "Make it true if want always online.",
       "required": false,
@@ -62,12 +64,6 @@
       "required": true,
       "value": "true"
     }, 
-    
-       "MENTION_REPLY": {
-      "description": "make it true if want mention reply if someone menetion you.",
-      "required": false,
-      "value": "false"
-    }, 
 
     "AUTO_STATUS_REACT": {
       "description": "make it true for automatic status reaction or like.",
@@ -91,24 +87,24 @@
     "BOT_NAME": {
       "description": "Type here the bot name.",
       "required": false,
-      "value": "𓆩ု᪳𝐀ɭīī 𝐌Ɗှ᪳𓆪"
+      "value": "𓆩ု᪳𝐀𝐋𝐈-𝐌𝐃ှ᪳𓆪"
 
       }, 
     
     "ALIVE_IMG": {
       "description": "put here the bot Menu url if you don't have you can use this public url.",
       "required": true,
-      "value": "https://files.catbox.moe/6ku0eo.jpg" 
+      "value": "https://cdn.ironman.my.id/i/2du3i5.jpg" 
       },
 
     "DELETE_LINK": {
-      "description": "Make it true if you want bot auto delete group link.",
+      "description": "Make it true if you want bot auto remove group link.",
       "required": false,
       "value": "false"
     }, 
     
-    "ANTI_LINK": {
-      "description": "Make it true if you want bot auto wearing group link.",
+    "ANTI_LINK_KICK": {
+      "description": "Make it true if you want bot auto remove group link.",
       "required": false,
       "value": "false"
     }, 
@@ -151,7 +147,7 @@
     }, 
     
     "ANTI_DEL_PATH": {
-      "description": "if you want true make it your bot number .antidelete on",
+      "description": "change it to -same- if you want to resend deleted message in same chat",
       "required": false,
       "value": "log"
     }, 
@@ -163,12 +159,4 @@
     }
 
 },
-
-     "buildpacks": [
-        {
-            "url": "https://github.com/heroku/heroku-buildpack-nodejs.git"
-        }
-     ],
-  "stack": "heroku-24"
-}
   
