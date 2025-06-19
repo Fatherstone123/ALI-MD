@@ -22,7 +22,7 @@
       
     "PREFIX": {
       "description": "paste your bot prefix note! Don't apply null prefix.",
-      "required": false,
+      "required": true,
       "value": "."
     },
     
@@ -33,16 +33,10 @@
       
     },
         
-    "ALWAYS_ONLINE": {
-      "description": "Make it true if want always online.",
+    "REJECT_MSG": {
+      "description": "put your own call reject message.",
       "required": false,
-      "value": "false"  
-    },    
-  
-    "AUTO_VOICE": {
-      "description": "Make it true if want automatic voice reply .",
-      "required": false,
-      "value": "false"
+      "value": "*📞 ᴄαℓℓ ɴσт αℓℓσωє∂ ιɴ тнιѕ ɴᴜмвєʀ уσυ ∂σɴт нανє ᴘєʀмιѕѕισɴ 📵*"
     }, 
 
     "AUTO_REPLY": {
@@ -63,7 +57,7 @@
       "value": "true"
     },
     
-   "GOODBYE": {
+    "GOODBYE": {
       "description": "make it true if want goodbye message in groups.",
       "required": false,
       "value": "false"
@@ -87,24 +81,11 @@
       "value": "false"
     }, 
 
-    "AUTO_STATUS_REACT": {
-      "description": "make it true for automatic status reaction or like.",
-      "required": true,
-      "value": "true"
-    }, 
-
     "AUTO_STATUS_REPLY": {
       "description": "Make it true for auto reply msg on status seen.",
       "required": false,
       "value": "false"
     }, 
-
-    "AUTO_STATUS_MSG": {
-      "description": "Type custom message on status reply",
-      "required": true,
-      "value": "*SEEN YOUR STATUS JUST NOW ALI-MD 🍒*"
-   
-     }, 
 
     "BOT_NAME": {
       "description": "Type here the bot name.",
@@ -119,14 +100,14 @@
       "value": "https://files.catbox.moe/6ku0eo.jpg" 
       },
 
-    "DELETE_LINK": {
-      "description": "Make it true if you want bot auto delete group link.",
+    "ANTI_LINK_WARN": {
+      "description": "Make it true if you use one antilink warn - kick.",
       "required": false,
       "value": "false"
     }, 
     
-    "ANTI_LINK": {
-      "description": "Make it true if you want bot auto wearing group link.",
+    "ANTI_LINK_KICK": {
+      "description": "Make it true if you use one antilink warn - kick.",
       "required": true,
       "value": "false"
     }, 
@@ -155,6 +136,11 @@
       "value": "false"
     },
 
+    "OWNER_REACT": {
+      "description": "Make it true if you want react on every message bot number.",
+      "required": false,
+      "value": "false"
+    },
     
     "CUSTOM_REACT": {
       "description": "Make it true if you want custom reactions.",
@@ -169,11 +155,23 @@
       "value": "💝,💖,💗,❤️‍🩹,❤️,🧡,💛,💚,💙,💜,🤎,🖤,🤍"
     }, 
     
-    "ANTI_DEL_PATH": {
-      "description": "if you want true make it your bot number .antidelete on",
+     "ANTI_CALL": {
+       "description": "Make it true if you want bot auto call rejected.",
+       "required": false,
+       "value": "false"       
+     }, 
+     
+     "ANTI_DEL_PATH": {
+      "description": "change it to -same- if you want to resend deleted message in same chat othwise inbox",
       "required": false,
-      "value": "log"
+      "value": "inbox"
     }, 
+    
+     "ANTI_DELETE": {
+      "description": "set true for show deleted messages.",
+      "required": false,
+      "value": "true"  
+    },
 
     "READ_MESSAGE": {
       "description": "Make it true if you want bot read your all sms just now.",
@@ -191,3 +189,4 @@
   "stack": "heroku-24"
 }
   
+
