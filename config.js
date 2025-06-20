@@ -1,68 +1,75 @@
 const fs = require('fs');
+const path = require('path');
+const { getConfig } = require("./lib/configdb");
+
 if (fs.existsSync('config.env')) require('dotenv').config({ path: './config.env' });
 
 function convertToBool(text, fault = 'true') {
     return text === fault ? true : false;
 }
 module.exports = {
-SESSION_ID: process.env.SESSION_ID || "",
+SESSION_ID: process.env.SESSION_ID || "",  
+//chatbot integration 
+CHATBOT: getConfig("CHATBOT") || "on",
 // add your Session Id 
 AUTO_STATUS_SEEN: process.env.AUTO_STATUS_SEEN || "true",
 // make true or false status auto seen
-AUTO_STATUS_REPLY: process.env.AUTO_STATUS_REPLY || "true",
+AUTO_STATUS_REPLY: process.env.AUTO_STATUS_REPLY || "false",
 // make true if you want auto reply on status 
 AUTO_STATUS_REACT: process.env.AUTO_STATUS_REACT || "true",
 // make true if you want auto reply on status 
 AUTO_STATUS_MSG: process.env.AUTO_STATUS_MSG || "*SEEN YOUR STATUS JUST NOW ALI-MD 👻*",
 // set the auto reply massage on status reply  
-PREFIX: process.env.PREFIX || ".",
+WELCOME: process.env.WELCOME || "true",
+// true if want welcome msg in groups
+GOODBYE: process.env.GOODBYE || "true",
+// true if want goodbye msg in groups 
+ADMIN_EVENTS: process.env.ADMIN_EVENTS || "false",
+// make true to know who dismiss or promoted a member in group
+ANTI_LINK: process.env.ANTI_LINK || "false",
+//anticall integration 
+ANTI_CALL: getConfig("ANTI_CALL") || "true",
+REJECT_MSG: process.env.REJECT_MSG || "*📞 ᴄαℓℓ ɴσт αℓℓσωє∂ ιɴ тнιѕ ɴᴜмвєʀ уσυ ∂σɴт нανє ᴘєʀмιѕѕισɴ 📵*",
+// make anti link true,false for groups 
+MENTION_REPLY: process.env.MENTION_REPLY || "false",
+// make true if want auto voice reply if someone menetion you 
+ALIVE_IMG: getConfig("ALIVE_IMG") || "https://qu.ax/zrqFX.jpg",
+// add custom menu image url
+PREFIX: getConfig("PREFIX") || ".", 
 // add your prifix for bot   
-BOT_NAME: process.env.BOT_NAME || "ALI-MD",
+BOT_NAME: getConfig("BOT_NAME") || "ALI-MD",
 // add bot namw here for menu
-STICKER_NAME: process.env.STICKER_NAME || "ALI-MD",
+STICKER_NAME: process.env.STICKER_NAME || "ALI-MD",    
+VPS: process.env.VPS || "",
 // type sticker pack name 
 CUSTOM_REACT: process.env.CUSTOM_REACT || "false",
+OWNER_REACT: process.env.OWNER_REACT || "false",
 // make this true for custum emoji react    
 CUSTOM_REACT_EMOJIS: process.env.CUSTOM_REACT_EMOJIS || "💝,💖,💗,❤️‍🩹,❤️,🧡,💛,💚,💙,💜,🤎,🖤,🤍",
 // chose custom react emojis by yourself 
 OWNER_NUMBER: process.env.OWNER_NUMBER || "923003588997",
 // add your bot owner number
-OWNER_NAME: process.env.OWNER_NAME || "ALI",
-// add bot owner name 
-WELCOME: process.env.WELCOME || "true",
-// true if want welcome msg in groups
-GOODBYE: process.env.GOODBYE || "true",
-// true if want goodbye msg in groups
-ADMIN_STATUS: process.env.ADMIN_STATUS || "false",
-// make true to know who dismiss or promoted a member in group
-ALWAYS_ONLINE: process.env.ALWAYS_ONLINE || "false",
-// maks true for always online 
-MENTION_REPLY: process.env.MENTION_REPLY || "false",
-// maks true for always online 
-ANTI_CALL: process.env.ANTI_CALL || "false",
-//maks anticall true, false for calls
-REJECT_MSG: process.env.REJECT_MSG || "*📞 ᴄαℓℓ ɴσт αℓℓσωє∂ ιɴ тнιѕ ɴᴜмвєʀ уσυ ∂σɴт нανє ᴘєʀмιѕѕισɴ 📵*", 
-// add anticall message 
-DESCRIPTION: process.env.DESCRIPTION || "*© ᴘσωєʀє∂ ву αℓι м∂⎯꯭̽💀*",
-// add bot owner name    
-ALIVE_IMG: process.env.ALIVE_IMG || "https://cdn.ironman.my.id/i/2du3i5.jpg",
-// add img for alive msg
-LIVE_MSG: process.env.LIVE_MSG || "> HEY 👋 IM ALIVE NOW*⚡",
+OWNER_NAME: process.env.OWNER_NAME || "ALI INXIDE",
+// add bot owner name
+DESCRIPTION: process.env.DESCRIPTION || "© ᴘσωєʀє∂ ву αℓι м∂⎯꯭̽💀",
+// add bot desp name    
+LIVE_MSG: process.env.LIVE_MSG || "HEY IM ALIVE",
 // add alive msg here 
 READ_MESSAGE: process.env.READ_MESSAGE || "false",
 // Turn true or false for automatic read msgs
 AUTO_REACT: process.env.AUTO_REACT || "false",
 // make this true or false for auto react on all msgs
-ANTI_BAD_WORD: process.env.ANTI_BAD_WORD || "true",
-// false or true for anti bad words  
-MODE: process.env.MODE || "public",
+ANTI_BAD_WORD: process.env.ANTI_BAD_WORD || "false",
+// false or true for anti bad words 
+ANTI_BOT: process.env.ANTI_BOT || "true",
+MODE: getConfig("MODE") || "public",
 // make bot public-private-inbox-group 
 ANTI_LINK_KICK: process.env.ANTI_LINK_KICK || "false",
 // make anti link true,false for groups 
+ANTIVIEW_ONCE: process.env.ANTIVIEW_ONCE || "off",
+ANTI_LINK_WARN: process.env.ANTILINK_WARN || "false",
+ANTI_LINK_KICK: process.env.ANTILINK_KICK || "false",
 ANTI_LINK_DELETE: process.env.ANTI_LINK_DELETE || "false",
-// make anti link true,false for groups 
-ANTI_LINK_WARN: process.env.ANTI_LINK_WARN || "false",
-// make anti link true,false for groups 
 AUTO_VOICE: process.env.AUTO_VOICE || "false",
 // make true for send automatic voices
 AUTO_STICKER: process.env.AUTO_STICKER || "false",
@@ -81,12 +88,9 @@ DEV: process.env.DEV || "923003588997",
 //replace with your whatsapp number        
 ANTI_VV: process.env.ANTI_VV || "true",
 // true for anti once view 
-ANTI_DELETE: process.env.ANTI_DELETE || "true",
-// set true false for anti delete     
+ANTI_DELETE: process.env.ANTI_DELETE || "false",
 ANTI_DEL_PATH: process.env.ANTI_DEL_PATH || "inbox", 
-// change it to 'same' if you want to resend deleted message in same chat     
+// change it to 'same' if you want to resend deleted message in same chat 
 AUTO_RECORDING: process.env.AUTO_RECORDING || "false"
 // make it true for auto recoding 
 };
-  
-
