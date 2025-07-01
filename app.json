@@ -93,6 +93,13 @@
       "value": "𓆩ု᪳𝐀ɭīī 𝐌Ɗှ᪳𓆪"
 
       }, 
+
+    "DESCRIPTION": {
+      "description": "Type here the bot description name.",
+      "required": false,
+      "value": "© ᴘσωєʀє∂ ву αℓι м∂⎯꯭̽💀"
+
+      }, 
     
     "ALIVE_IMG": {
       "description": "put here the bot Menu url if you don't have you can use this public url.",
